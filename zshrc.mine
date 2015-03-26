@@ -1,0 +1,25 @@
+# Various
+umask 0027
+tabs -2
+setopt extendedglob
+
+# Sourcing
+source "/usr/local/bin/virtualenvwrapper.sh"
+
+# Environment variables
+export PATH="${PATH}:${HOME}/bin:${HOME}/scripts"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GOPATH="${HOME}/.go/"
+export WORKON_HOME="${HOME}/.virtualenvs"
+export EDITOR="vim"
+export VISUAL="vim"
+export PAGER="less"
+
+# Aliases
+alias cdp="cd ~/projects/personal/"
+alias grep="grep --color=auto"
+if [[ "$(uname)" =~ "Linux" ]]; then
+  alias ls="ls --color=auto"
+else
+  alias ls="ls -G"
+fi
