@@ -43,4 +43,5 @@ ZSH_THEME="lukerandall"
 plugins=(brew git encode64 jira jsontools mvn osx pip rand-quote terminalapp python svn safe-paste sudo virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
-source "${HOME}/.zshrc.mine"
+[[ -e "${HOME}/.zshrc.mine" ]] && source "${HOME}/.zshrc.mine"
+[[ -e "${HOME}/.zshrc.work" ]] && source "${HOME}/.zshrc.work"

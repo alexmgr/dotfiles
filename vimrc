@@ -1,12 +1,28 @@
+" Vundle plugin manager settings
+" ==============================
+
+set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Add additional plugins here
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/minibufexpl.vim'
+Plugin 'ervandew/supertab'
+Plugin 'msanders/snipmate.vim'
+" Python specific plugins
+Plugin 'vim-scripts/pep8'
+call vundle#end()
+
 " General settings
 " ===============
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
+filetype on
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme desert        " set colorscheme
 set number                " show line numbers
-filetype indent on        " activates indenting for files
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
@@ -23,6 +39,8 @@ set encoding=utf-8
 set history=1000
 set colorcolumn=120
 set visualbell
+set foldmethod=indent
+set foldlevel=99
 
 " Backups/Swapfiles
 " =================
@@ -51,7 +69,7 @@ set statusline+=%P " percentage of file
 set laststatus=2
 
 " Display
-" " =======
+" =======
 
 set nolazyredraw           " turn off lazy redraw
 set background=dark        " black is the night
@@ -63,3 +81,25 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
+
+" Cscope mappings
+" ===============
+if has('cscope')
+  set cscopetag cscopeverbose
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+  cnoreabbrev <expr> csa
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs add'  : 'csa')
+  cnoreabbrev <expr> csf
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs find' : 'csf')
+  cnoreabbrev <expr> csk
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs kill' : 'csk')
+  cnoreabbrev <expr> csr
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs reset' : 'csr')
+  cnoreabbrev <expr> css
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs show' : 'css')
+  cnoreabbrev <expr> csh
+    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
+end
+

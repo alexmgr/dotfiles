@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles.old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc zshrc.mine config oh-my-zsh virtualenvs"
+files="bashrc vimrc vim zshrc zshrc.mine config oh-my-zsh"
 
 ##########
 
