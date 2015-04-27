@@ -8,7 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles.old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc zshrc.mine oh-my-zsh"
+files="bashrc vimrc vim zshrc zshrc.mine"
+python_packages={"bpython", "virtualenv", "mkvirtualenv"}
 
 ##########
 
@@ -25,7 +26,7 @@ echo "done"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    mv ~/.$file $olddir
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
@@ -46,7 +47,7 @@ else
     platform=$(uname);
     # If the platform is Linux, try an apt-get to install zsh and then recurse
     if [[ $platform == 'Linux' ]]; then
-        sudo apt-get install zsh
+        sudo aptitude install zsh
         install_zsh
     # If the platform is OS X, tell the user to install zsh :)
     elif [[ $platform == 'Darwin' ]]; then
@@ -56,5 +57,17 @@ else
 fi
 }
 
-install_zsh
+install_software() {
+  # Create vim backup dir
+  mkdir -p ~/.vim/backup
+  # Installing vundle plugin manager and activate plugins
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+  # Install python packages
+  for package in $python_packages; do
+    pip install -q "${package}"
+  done
+}
 
+install_zsh
+install_software
