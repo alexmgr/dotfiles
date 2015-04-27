@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/minibufexpl.vim'
 Plugin 'ervandew/supertab'
 Plugin 'msanders/snipmate.vim'
+Plugin 'mileszs/ack.vim'
 " Python specific plugins
 Plugin 'vim-scripts/pep8'
 call vundle#end()
@@ -81,6 +82,13 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
+
+" Key bindings
+" ============
+
+let mapleader=' '
+let g:pep8_map='<leader>8'
+nmap <leader>a <Esc>:Ack!
 
 " Cscope mappings
 " ===============
