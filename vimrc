@@ -9,9 +9,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/minibufexpl.vim'
 Plugin 'ervandew/supertab'
-Plugin 'msanders/snipmate.vim'
+Plugin 'garbas/vim-snipmate'
 Plugin 'mileszs/ack.vim'
-Plugin 'git://github.com/davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 " Python specific plugins
 Plugin 'vim-scripts/pep8'
 call vundle#end()
@@ -90,11 +90,11 @@ set nostartofline          " don't jump to the start of line when scrolling
 let mapleader=' '
 let g:pep8_map='<leader>8'
 nmap <leader>a <Esc>:Ack!
+autocmd FileType python map <buffer> <f5> :w<cr>:!python %<cr>
 
 " Plugin config
 " =============
 let g:SuperTabDefaultCompletionType = "context"
-let g:jedi#popup_on_dot = 0
 
 " Cscope mappings
 " ===============
