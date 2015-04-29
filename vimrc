@@ -9,7 +9,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/minibufexpl.vim'
 Plugin 'ervandew/supertab'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'davidhalter/jedi-vim'
 " Python specific plugins
