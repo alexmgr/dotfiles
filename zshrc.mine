@@ -3,9 +3,6 @@ umask 0027
 tabs -2
 setopt extendedglob
 
-# Sourcing
-source "/usr/local/bin/virtualenvwrapper.sh"
-
 # Environment variables
 export PATH="${PATH}:${HOME}/bin:${HOME}/scripts"
 #export JAVA_HOME=$(/usr/libexec/java_home)
@@ -14,6 +11,9 @@ export WORKON_HOME="${HOME}/.virtualenvs"
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER="less"
+
+# Sourcing
+[[ -e "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
 
 # Aliases
 alias cdp="cd ~/projects/personal/"
