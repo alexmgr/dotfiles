@@ -98,6 +98,7 @@ autocmd FileType python map <buffer> <f5> :w<cr>:!python %<cr>
 " Plugin config
 " =============
 let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#popup_select_first = 0 
 
 " Cscope mappings
 " ===============
