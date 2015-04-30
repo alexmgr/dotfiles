@@ -15,6 +15,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'embear/vim-localvimrc'
 " Python specific plugins
 Plugin 'vim-scripts/pep8'
 call vundle#end()
