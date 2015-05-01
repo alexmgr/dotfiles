@@ -16,8 +16,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'embear/vim-localvimrc'
+Plugin 'altercation/vim-colors-solarized'
 " Python specific plugins
-Plugin 'vim-scripts/pep8'
+Plugin 'tell-k/vim-autopep8'
 call vundle#end()
 
 " General settings
@@ -78,7 +79,6 @@ set laststatus=2
 " =======
 
 set nolazyredraw           " turn off lazy redraw
-set background=dark        " black is the night
 set number                 " line numbers
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set wildmenu               " turn on wild menu
@@ -87,14 +87,18 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
+colorscheme solarized
 
 " Key bindings
 " ============
 
 let mapleader=' '
-let g:pep8_map='<leader>8'
 nmap <leader>a <Esc>:Ack!
-autocmd FileType python map <buffer> <f5> :w<cr>:!python %<cr>
+if has("autocmd")
+  autocmd FileType python map <buffer> <f5> :w<cr>:!python %<cr>
+  autocmd FileType python map <buffer> <leader>8 :call Autopep8()<CR>
+  "autocmd BufWritePost *.py !autopep8 -i \"%s\"
+end
 
 " Plugin config
 " =============
