@@ -87,7 +87,12 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
+if !has("gui_running")
+  let g:solarized_termtrans=1
+  "let g:solarized_termcolors=256
+endif
 colorscheme solarized
+set background=dark
 
 " Key bindings
 " ============
