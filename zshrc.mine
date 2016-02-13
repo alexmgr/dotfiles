@@ -13,6 +13,7 @@ export VISUAL="vim"
 export PAGER="less"
 
 # Sourcing
+export VIRTUALENVWRAPPER_PROJECT_FILENAME=".virtualenv-project"
 [[ -e "/usr/local/bin/virtualenvwrapper.sh" ]] && source "/usr/local/bin/virtualenvwrapper.sh"
 
 # Aliases

@@ -35,9 +35,9 @@ set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
 set autoindent            " auto-indent
-set tabstop=2             " tab spacing
-set softtabstop=2         " unify
-set shiftwidth=2          " indent/outdent by 4 columns
+set tabstop=4             " tab spacing
+set softtabstop=4         " unify
+set shiftwidth=4          " indent/outdent by 4 columns
 set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
@@ -48,6 +48,8 @@ set colorcolumn=120
 set visualbell
 set foldmethod=indent
 set foldlevel=99
+set hidden               " Keep unsaved buffers in the background
+set confirm              " Ask for confirmation before closing unsaved buffers
 
 " Backups/Swapfiles
 " =================
@@ -108,7 +110,10 @@ end
 " Plugin config
 " =============
 let g:SuperTabDefaultCompletionType = "context"
-let g:jedi#popup_select_first = 0 
+let g:jedi#popup_select_first = 0                                                                                          
+let g:jedi#popup_on_dot = 0
+map <C-P> :bp<cr>                                                                                                          
+map <C-N> :bp<cr>
 
 " Cscope mappings
 " ===============
@@ -130,4 +135,9 @@ if has('cscope')
   cnoreabbrev <expr> csh
     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
 end
+
+
+" Cscope mappings
+" ===============
+set tags=./tags,tags;$HOME
 

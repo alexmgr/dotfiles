@@ -40,7 +40,7 @@ ZSH_THEME="lukerandall"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew git encode64 jira jsontools mvn osx pip rand-quote terminalapp python svn safe-paste sudo virtualenvwrapper)
+plugins=(virtualenvwrapper brew git jsontools mvn osx pip terminalapp python svn safe-paste sudo hg)
 
 source $ZSH/oh-my-zsh.sh
 [[ -e "${HOME}/.zshrc.mine" ]] && source "${HOME}/.zshrc.mine"
