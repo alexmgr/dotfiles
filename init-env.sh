@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/.dotfiles.old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc zshrc.mine"
+files="bashrc vimrc vim zshrc zshrc.mine gdbinit"
 python_packages={"bpython", "virtualenv", "mkvirtualenv"}
 
 ##########
