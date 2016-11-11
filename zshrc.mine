@@ -4,13 +4,13 @@ tabs -2
 setopt extendedglob
 
 # Environment variables
-export PATH="${PATH}:${HOME}/bin:${HOME}/scripts"
 #export JAVA_HOME=$(/usr/libexec/java_home)
-export GOPATH="${HOME}/.go/"
+export GOPATH="${HOME}"
 export WORKON_HOME="${HOME}/.virtualenvs"
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER="less"
+export PATH="${PATH}:${HOME}/bin:${HOME}/scripts"
 
 # Sourcing
 export VIRTUALENVWRAPPER_PROJECT_FILENAME=".virtualenv-project"
@@ -24,3 +24,5 @@ if [[ "$(uname)" =~ "Linux" ]]; then
 else
   alias ls="ls -G"
 fi
+
+gocd () { cd `go list -f '{{.Dir}}' $1` }
